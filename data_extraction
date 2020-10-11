@@ -1,0 +1,42 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+ 
+<script>
+ 
+    $(function() {
+ 
+ 
+   var people = [];
+ 
+   $.getJSON('https://thingspeak.com/channels/983206/feed.json', function(data) {
+          var tblRow = "<tr>" + "<td>" + data.feeds[data.feeds.length-1].field1 + "</td>" +
+           "<td>" + data.feeds[data.feeds.length-1].field2 + "</td>" + "<td>" + data.feeds[data.feeds.length-1].field3 + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+   });
+ 
+});
+</script>
+</head>
+ 
+<body>
+ 
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+  <thead>
+            <th>humidity</th>
+            <th>temperature</th>
+            <th>moisture</th>
+            
+        </thead>
+      <tbody>
+ 
+       </tbody>
+   </table>
+ 
+</div>
+</div>
+ 
+</body>
+</html> 
